@@ -9,7 +9,8 @@ def home():
     """Home route with usage instructions."""
     return (
         "<h2>Welcome to the UFO Sightings API</h2>"
-        "<p>Use the route <code>/year/&lt;year&gt;</code> to view sightings from a specific year.</p>"
+        "<p>Use the route <code>/year/&lt;year&gt;</code><br>"
+        "to view sightings from a specific year.</p>"
         "<p>Example: <a href='/year/1999'>/year/1999</a></p>"
     )
 
@@ -18,9 +19,7 @@ def sightings_by_year(year):
     """Return UFO sightings from the given year in HTML table format."""
     results = get_sightings_by_year(year)
     if not results:
-        return (
-            f"<p>No sightings found for the year {year}.</p>"
-        )
+        return f"<p>No sightings found for the year {year}.</p>"
     return render_results(year, results)
 
 def render_results(year, results):
