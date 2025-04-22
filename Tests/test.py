@@ -3,6 +3,7 @@ import unittest
 from app import app
 
 class TestFlaskRoutes(unittest.TestCase):
+    """Test the Flask routes."""
     def setUp(self):
         self.client = app.test_client()
 
@@ -16,7 +17,7 @@ class TestFlaskRoutes(unittest.TestCase):
         """Test the /year/<year> route returns HTML content for dummy year."""
         response = self.client.get("/year/1999")
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'<table', response.data)  # check that HTML table is present
+        self.assertIn(b'<table', response.data)
 
 if __name__ == '__main__':
     unittest.main()
